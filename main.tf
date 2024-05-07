@@ -304,7 +304,7 @@ resource "aws_cloudwatch_event_rule" "this" {
 resource "aws_cloudwatch_event_target" "this" {
   arn        = aws_lambda_function.this.arn
   rule       = aws_cloudwatch_event_rule.this.name
-  depends_on = [aws_lambda_function.this.arn, aws_cloudwatch_event_rule.this.name]
+  depends_on = [aws_lambda_function.this, aws_cloudwatch_event_rule.this]
 }
 
 resource "aws_lambda_permission" "this" {
